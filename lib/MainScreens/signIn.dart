@@ -207,6 +207,7 @@ class _SignInPageState extends State<SignInPage> {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
+                              user=User.empty();
                               return ForgotPasswordPage(user: user);
                             },
                           ));

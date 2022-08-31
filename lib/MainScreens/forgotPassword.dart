@@ -30,7 +30,7 @@ class ForgotPasswordPage extends StatelessWidget {
     AlertDialog alert = AlertDialog(
       title: Center(child: Text('Success')),
       content:
-          Text('The verification code was sent to the email address provided'),
+      Text('The verification code was sent to the email address provided'),
       actions: [
         okButton,
       ],
@@ -83,7 +83,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                   style: kPageHeading),
                               TextSpan(
                                   text:
-                                      "Please enter your email address. You will receive a link to reset your password via email.\n\n",
+                                  "Please enter your email address. You will receive a link to reset your password via email.\n\n",
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.black,
@@ -96,9 +96,9 @@ class ForgotPasswordPage extends StatelessWidget {
                                 return 'Please Enter your Email Address';
                               }
                               if (!RegExp(
-                                      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                  "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                                   .hasMatch(value)) {
-                                return 'Please a valid Email';
+                                return 'Please Enter a valid Email';
                               }
                               return null;
                             },
@@ -106,18 +106,18 @@ class ForgotPasswordPage extends StatelessWidget {
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: kButtonColor, width: 2),
+                                  BorderSide(color: kButtonColor, width: 2),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(20))),
+                                  BorderRadius.all(Radius.circular(20))),
                               hintText: "Email Address",
                               prefixIcon: Icon(
                                 Icons.email,
                                 color: kButtonColor,
                               ),
                             ),
-                            // onSaved: (String value) {
-                            //   email = value;
-                            // },
+                            onSaved: (String ?value) {
+                              email = value!;
+                            },
                           ),
                           SizedBox(height: 38.0),
                         ],
@@ -131,12 +131,12 @@ class ForgotPasswordPage extends StatelessWidget {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(kButtonColor),
+                      MaterialStateProperty.all<Color>(kButtonColor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40.0),
-                        side: BorderSide(color: kButtonColor),
-                      )),
+                            borderRadius: BorderRadius.circular(40.0),
+                            side: BorderSide(color: kButtonColor),
+                          )),
                     ),
                     onPressed: () async {
                       if (forgotKey.currentState!.validate()) {
@@ -150,7 +150,7 @@ class ForgotPasswordPage extends StatelessWidget {
                             String,
                             dynamic>; //converting it from json to key value pair
                         serverResponse = decoded[
-                            'response']; //changing the state of our widget on data update
+                        'response']; //changing the state of our widget on data update
 
                         print(serverResponse);
 
@@ -161,9 +161,9 @@ class ForgotPasswordPage extends StatelessWidget {
                     child: Text(
                       "SEND",
                       style: Theme.of(context).textTheme.button!.copyWith(
-                            color: Colors.black,
-                            fontSize: 22,
-                          ),
+                        color: Colors.black,
+                        fontSize: 22,
+                      ),
                     ),
                   ),
                 )
