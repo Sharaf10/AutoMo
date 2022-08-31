@@ -1,0 +1,1 @@
+mobile: gunicorn app:app
