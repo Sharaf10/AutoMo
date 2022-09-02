@@ -67,7 +67,7 @@ class _DropDownState extends State<DropDown> {
   String? vehicleModel;
   List<String> models = [
     'Vitz',
-    'Corolla',
+    'Toyota Corolla',
     'Land Cruiser Prado',
     'Aqua',
     'Axio',
@@ -529,48 +529,93 @@ class _DropDownState extends State<DropDown> {
                               if (formKey.currentState!.validate()) {
                                 setState(() => loading = true);
                                 formKey.currentState!.save();
-                                final sendResponse = await http.post(
+                                // final sendResponse = await http.post(
+                                //     Uri.parse(
+                                //         'https://automovehicle.herokuapp.com/predict'),
+                                //     body: json.encode({
+                                //       'model': vehicle.model,
+                                //       'year': vehicle.manufactureYear,
+                                //       'engine capacity': vehicle.engineCapacity,
+                                //       'mileage': vehicle.mileage,
+                                //       'grade': vehicle.grade,
+                                //       'fuel type': vehicle.fuelType,
+                                //       'transmission type':
+                                //           vehicle.transmissionType
+                                //     }));
+                                //
+                                // final decoded = json
+                                //     .decode(
+                                //         sendResponse.body) as Map<String,
+                                //     dynamic>; //converting it from json to key value pair
+                                // finalResponse = decoded[
+                                //     'response'];
+                                //
+                                // changing the state of our widget on data update
+
+                                var headers = {
+                                  'Content-Type': 'application/json'
+                                };
+
+                                var request = http.Request(
+                                    'POST',
                                     Uri.parse(
-                                        'https://automovehicle.herokuapp.com/predict'),
-                                    body: json.encode({
-                                      'model': vehicle.model,
-                                      'year': vehicle.manufactureYear,
-                                      'engine capacity': vehicle.engineCapacity,
-                                      'mileage': vehicle.mileage,
-                                      'grade': vehicle.grade,
-                                      'fuel type': vehicle.fuelType,
-                                      'transmission type':
-                                          vehicle.transmissionType
-                                    }));
+                                        'https://automovehicle.herokuapp.com/predict'));
+                                request.body = json.encode({
+                                  'model': vehicle.model,
+                                  'year': vehicle.manufactureYear,
+                                  'engine capacity': vehicle.engineCapacity,
+                                  'mileage': vehicle.mileage,
+                                  'grade': vehicle.grade,
+                                  'fuel type': vehicle.fuelType,
+                                  'transmission type': vehicle.transmissionType
+                                });
+                                request.headers.addAll(headers);
 
-                                final decoded = json
-                                    .decode(
-                                        sendResponse.body) as Map<String,
-                                    dynamic>; //converting it from json to key value pair
-                                finalResponse = decoded[
-                                    'response']; //changing the state of our widget on data update
+                                http.StreamedResponse response =
+                                    await request.send();
 
-                                print(finalResponse);
-                                final sendResponse2 = await http.post(
-                                    Uri.parse(
-                                        'http://10.0.2.2:5000/graph'),
-                                    body: json.encode({
-                                      'model': vehicle.model,
-                                      'email': user.email
-                                    }));
+                                if (response.statusCode == 200) {
+                                  finalResponse=await response.stream.bytesToString();
+                                  //print(await response.stream.bytesToString());
+                                  // finalResponse=await response.stream.bytesToString();
 
-                                final decoded2 = json
-                                    .decode(
-                                        sendResponse2.body) as Map<String,
-                                    dynamic>; //converting it from json to key value pair
-                                String url = decoded2[
-                                    'response']; //changing the state of our widget on data update
-                                print(url);
+                                  print(finalResponse);
+
+                                  final decoded = json
+                                      .decode(
+                                          finalResponse) as Map<String,
+                                      dynamic>; //converting it from json to key value pair
+                                  finalResponse = decoded[
+                                      'response'];
+
+                                  // print(finalResponse+"hello");
+
+                                } else {
+                                  print("hi");
+                                  print(response.reasonPhrase);
+                                }
+
+                                //print(finalResponse);
+                                // final sendResponse2 = await http.post(
+                                //     Uri.parse(
+                                //         'https://automovehicle.herokuapp.com/graph'),
+                                //     body: json.encode({
+                                //       'model': vehicle.model,
+                                //       'email': user.email
+                                //     }));
+                                //
+                                // final decoded2 = json
+                                //     .decode(
+                                //         sendResponse2.body) as Map<String,
+                                //     dynamic>; //converting it from json to key value pair
+                                // String url = decoded2[
+                                //     'response']; //changing the state of our widget on data update
+                                // print(url);
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => ResultPage(
                                       finalResponse: finalResponse,
                                       user: user,
-                                      url: url),
+                                      url: ""),
                                 ));
                               }
                             },
