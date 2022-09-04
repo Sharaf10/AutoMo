@@ -69,7 +69,7 @@ class _DropDownState extends State<DropDown> {
     'Vitz',
     'Toyota Corolla',
     'Land Cruiser Prado',
-    'Toyota Aqua',
+    'Aqua',
     'Axio',
     'Premio',
     'Prius',
@@ -575,8 +575,7 @@ class _DropDownState extends State<DropDown> {
                           await request.send();
 
                           if (response.statusCode == 200) {
-                            finalResponse =
-                            await response.stream.bytesToString();
+                            finalResponse=await response.stream.bytesToString();
                             //print(await response.stream.bytesToString());
                             // finalResponse=await response.stream.bytesToString();
 
@@ -586,7 +585,8 @@ class _DropDownState extends State<DropDown> {
                                 .decode(
                                 finalResponse) as Map<String,
                                 dynamic>; //converting it from json to key value pair
-                            finalResponse = decoded['response'];
+                            finalResponse = decoded[
+                            'response'];
 
                             // print(finalResponse+"hello");
 
@@ -595,27 +595,27 @@ class _DropDownState extends State<DropDown> {
                             print(response.reasonPhrase);
                           }
 
-                          // print(finalResponse);
-                          final sendResponse2 = await http.post(
-                              Uri.parse(
-                                  'https://automovehicle.herokuapp.com/graph'),
-                              body: json.encode({
-                                'model': vehicle.model,
-                                'email': user.email
-                              }));
-
-                          final decoded2 = json
-                              .decode(
-                              sendResponse2.body) as Map<String,
-                              dynamic>; //converting it from json to key value pair
-                          String url = decoded2[
-                          'response']; //changing the state of our widget on data update
-                          print(url);
+                          //print(finalResponse);
+                          // final sendResponse2 = await http.post(
+                          //     Uri.parse(
+                          //         'https://automovehicle.herokuapp.com/graph'),
+                          //     body: json.encode({
+                          //       'model': vehicle.model,
+                          //       'email': user.email
+                          //     }));
+                          //
+                          // final decoded2 = json
+                          //     .decode(
+                          //         sendResponse2.body) as Map<String,
+                          //     dynamic>; //converting it from json to key value pair
+                          // String url = decoded2[
+                          //     'response']; //changing the state of our widget on data update
+                          // print(url);
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => ResultPage(
                                 finalResponse: finalResponse,
                                 user: user,
-                                url: url),
+                                url: ""),
                           ));
                         }
                       },
