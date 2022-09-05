@@ -306,7 +306,7 @@ def predict():
         model.fit(x_train,y_train)
         model.fit(x,y)
 
-        prediction = model.predict([[int(year),int(engineCapacity),int(mileage), int(modelNum), int(transNum), int(fuelNum)]]).astype(float)
+        prediction = model.predict([[int(year),int(engineCapacity),int(mileage), 0, int(modelNum), int(transNum), int(fuelNum)]]).astype(float)
         price = "Rs. {:,.2f}".format(prediction[0])
 
         return jsonify({'response':price})
