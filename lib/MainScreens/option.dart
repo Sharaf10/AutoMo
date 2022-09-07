@@ -4,7 +4,7 @@ import 'dart:io'; // for File
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final/ContactUs.dart';
-import 'package:flutter_final/MainScreens/login.dart';
+import 'package:flutter_final/MainScreens/signup.dart';
 import 'package:flutter_final/MainScreens/signIn.dart';
 import 'package:flutter_final/OptionScreens/FAQPage.dart';
 import 'package:flutter_final/OptionScreens/callExpert.dart';
@@ -198,7 +198,7 @@ class _OptionState extends State<Option> {
           ),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Login();
+              return Signup();
             }));
           },
         ),

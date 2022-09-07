@@ -5,7 +5,7 @@ import 'package:flutter_final/OptionScreens/mainSettings.dart';
 import 'package:flutter_final/User.dart';
 import 'package:flutter/material.dart';
 
-import 'MainScreens/login.dart';
+import 'MainScreens/signup.dart';
 import 'constants.dart';
 
 void main() {

@@ -11,12 +11,12 @@ import 'package:http/http.dart' as http;
 
 import 'option.dart';
 
-class Login extends StatefulWidget {
+class Signup extends StatefulWidget {
   @override
   _Login createState() => _Login();
 }
 
-class _Login extends State<Login> {
+class _Login extends State<Signup> {
   bool loading = false;
   String? userName;
   String? email;

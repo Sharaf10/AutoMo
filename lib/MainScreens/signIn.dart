@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final/MainScreens/forgotPassword.dart';
-import 'package:flutter_final/MainScreens/login.dart';
+import 'package:flutter_final/MainScreens/signup.dart';
 import 'package:flutter_final/MainScreens/option.dart';
 import 'package:flutter_final/User.dart';
 import 'package:flutter_final/constants.dart';
@@ -111,7 +111,7 @@ class _SignInPageState extends State<SignInPage> {
                                     onTap: () {
                                       Navigator.push(context, MaterialPageRoute(
                                         builder: (context) {
-                                          return Login();
+                                          return Signup();
                                         },
                                       ));
                                     },
