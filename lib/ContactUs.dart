@@ -76,12 +76,12 @@ class ContactUs extends StatelessWidget {
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'FontTitle',
-                      color: Colors.lightBlueAccent),
+                      color: Color(0xFF80DEEA)),
                 ),
                 SizedBox(height: 20),
                 Text('How can we help you',
                     style:
-                        TextStyle(fontSize: 20, fontStyle: FontStyle.italic)),
+                        TextStyle(fontSize: 18, fontStyle: FontStyle.italic)),
                 SizedBox(height: 20),
                 TextFormField(
                   validator: (value) {

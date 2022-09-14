@@ -117,9 +117,13 @@ class _SignInPageState extends State<SignInPage> {
                                     },
                                     child: Text(
                                       "SIGNUP",
-                                      style: Theme.of(context).textTheme.button,
+                                      style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                        color: Color(0xFF80DEEA)),
+                                      ),
                                     ),
-                                  ),
+
                                 ],
                               ),
                             ],

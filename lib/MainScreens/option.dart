@@ -263,7 +263,7 @@ class _OptionState extends State<Option> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 80,
             ),
             Container(
               child: Row(

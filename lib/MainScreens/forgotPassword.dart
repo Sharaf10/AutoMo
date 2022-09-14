@@ -51,13 +51,17 @@ class ForgotPasswordPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Container(
+
         child: Form(
             key: forgotKey,
             child: Column(
               children: [
+                SizedBox(
+                    height: 80),
                 Flexible(
                   flex: 1,
                   child: Container(
+
                     height: 250,
                     width: 300.0,
                     decoration: BoxDecoration(

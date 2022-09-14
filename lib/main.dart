@@ -103,7 +103,7 @@ class WelcomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 50.0),
+                SizedBox(height: 80.0),
                 FittedBox(
                   child: GestureDetector(
                     onTap: () {

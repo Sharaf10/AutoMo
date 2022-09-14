@@ -60,7 +60,7 @@ class Call extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                Text('flutter_finalbile Engineer'),
+                Text('Automobile Engineer'),
                 SizedBox(
                   height: 10,
                 ),
@@ -95,7 +95,7 @@ class Call extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                Text('flutter_finalbile Engineer'),
+                Text('Automobile Engineer'),
                 SizedBox(
                   height: 10,
                 ),
@@ -130,7 +130,7 @@ class Call extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                Text('flutter_finalbile Dealer'),
+                Text('Automobile Dealer'),
                 SizedBox(
                   height: 10,
                 ),
@@ -165,7 +165,7 @@ class Call extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                Text('flutter_finalbile Dealer'),
+                Text('Automobile Dealer'),
                 SizedBox(
                   height: 10,
                 ),
@@ -200,7 +200,7 @@ class Call extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                Text('flutter_finalbile Engineer'),
+                Text('Automobile Engineer'),
                 SizedBox(
                   height: 10,
                 ),
